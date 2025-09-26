@@ -1,72 +1,22 @@
-# Getting Started with Create React App
+Journalists face challenges reporting on political campaigns. This is a web service that manipulates and analyzes documents and data from the Federal Election Commission (FEC). 
+This project provides: easier analysis of “Form 1: Statement of Organization” documents to identify potential sources and computation of donation share to a candidate’s campaign.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##Features: ##
+###Compress + Upload:###
+- Input a PDF of FEC Form 1: Statement of Organization. 
+- Use pypdf’s pdfwriter to compress the PDF and upload it to an S3 bucket.
 
-## Available Scripts
+###OCR + download:###
+- Convert pdf to png with pdf2image.
+- Amazon Textract to apply Optical Character Recognition (OCR) to the converted document.
+- Retrieve the text string to parse with Python re library.
+- The report returns a JSON that tells us: committee name, the address, emails, and the name and phone number of the treasurer.
 
-In the project directory, you can run:
+###Compute & Report:###
+- Takes candidate, contributor IDs, and time period as inputs
+- Calls on OpenFEC API to retrieve external data
+- Calculates and outputs organized JSON of what percent of a candidate’s campaign fundraising in a given election cycle came from the contributor of interest.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# FEC-SOP-Tool
-# FEC-SOP-Tool
