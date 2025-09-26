@@ -17,6 +17,4 @@ This project provides: easier analysis of “Form 1: Statement of Organization�
 - Calls on OpenFEC API to retrieve external data
 - Calculates and outputs organized JSON of what percent of a candidate’s campaign fundraising in a given election cycle came from the contributor of interest.
 
-
-
-
+Note: Back-end files not available in this repo.
